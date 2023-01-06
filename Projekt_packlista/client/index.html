@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon"
+        href="data:image/x-icon;"
+        type="image/x-icon" />
+  <title>Packlista-applikation</title>
+</head>
+
+<body>
+  <main id="root"
+        class="pt-24 bg-gradient-to-br from-teal-400 to-white-300 min-h-screen">
+    <h1 class="text-center mb-6 text-7xl text-teal-900 ">Packlista</h1>
+    <section class="flex gap-10 w-full xl:w-4/5 mx-2 xl:mx-auto bg-white bg-opacity-75 p-5 rounded">
+      <section class="flex-1">
+        <h2 class="mb-6 text-3xl text-teal-900">Lägg till en sak i packlistan</h2>
+        <form id="listForm"
+              name="listForm">
+          <section class="mb-2">
+            <label class="block text-green-900 pr-5 mb-2 text-xl"
+                   for="title">Sak</label>
+            <p class="message text-sm text-green-700 mb-2 hidden">
+              Error
+            </p>
+            <input type="text"
+                   id="thing"
+                   name="thing"
+                   class="w-full rounded-md border-teal-500 border-2 focus-within:outline-none focus:border-teal-600 px-4 py-2" />
+          </section>
+          <section class="mb-2">
+            <label class="block text-green-900 pr-5 mb-2 text-xl"
+                   for="description">Antal</label>
+            <p class="tracking-wide message text-sm text-green-700 mb-2 hidden">
+              Error
+            </p>
+            <input type="text"
+            id="number"
+            name="number"
+            class="w-full rounded-md border-teal-500 border-2 focus-within:outline-none focus:border-teal-600 px-4 py-2" />
+          </section>
+
+          <section class="mb-2">
+            <label class="block text-green-900 pr-5 mb-2 text-xl"
+                   for="description">Till resa</label>
+            <p class="tracking-wide message text-sm text-green-700 mb-2 hidden">
+              Error
+            </p>
+            <input type="text"
+            id="trip"
+            name="trip"
+            class="w-full rounded-md border-teal-500 border-2 focus-within:outline-none focus:border-teal-600 px-4 py-2" />
+          </section>
+          <button name="submitlistForm"
+                  class="tracking-wide rounded bg-zinc-300 hover:bg-zinc-500 px-4 py-1"
+                  type="submit">
+            Lägg till
+          </button>
+        </form>
+      </section>
+      <!-- Punkt 2a visas här; -->
+      <section class="flex-1 px-5">
+        <h2 class="mb-6 text-3xl text-teal-900">Alla saker</h2>
+        <ul id="packingList">
+        </ul>
+      </section>
+    </section>
+  </main>
+  <script src="Api.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
