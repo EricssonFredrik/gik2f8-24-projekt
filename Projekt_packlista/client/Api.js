@@ -41,6 +41,8 @@ class Api {
   }
 
 /*
+Uppgift 2A
+1.1.1
 Denna kodsnutt definerar en metod som vi kallar getAll som gör ett HTTP GET anrop till den URL som är lagrad i this.url variabeln 
 Fetch funktionen används för att initiera vår förfrågan och returnerar ett promise som svarar på ett response objekt när vårt förfrågan är klar.
 
@@ -50,7 +52,7 @@ inväntar svaret på denna datan.
 Vi har sen en till then metod kedjad till den tidigare metoden för att ta hand om vårt tidigare svar/promise. Den returnerar alltså helt enkelt datan.
 catch metoden används ifall det sker något error. Ifall ett error sker så printas det ut i konsollen.
 Generellt så skickar denna kod ett HTTP GET request till en specifik URL, omvandlar till JSON och returnerar den omvandlade datan. Och om ett error sker så meddelar den det. 
-BYT TILLBAKS TILL SCRIPT
+BYT TILLBAKS TILL SCRIPT 1.1.2
 */
   getAll() {
     return fetch(this.url)

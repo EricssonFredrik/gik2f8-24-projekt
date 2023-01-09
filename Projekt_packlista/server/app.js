@@ -27,16 +27,16 @@ app.get('/tasks', async (req, res) => {
 
 
 
-/* Uppgift 2 C, hela app.post FRÅN MAJS*/
+/* Uppgift 2 C, hela app.post*/
 
 /* 
 Lyssnar och tar emot data till backend. Svaret från backend är res. Svaret kommer från tasks.json
 När ett request är gjort, kommer servern exekvera funktionen.
 Funktionen läser först request-bodyn och sparar den i variablen 'task'.
 Sedan läser den innehållen av filen 'tasks.json' och sparar den i variabeln listBuffer.
-För att kunna behandla listan av uppgifter i filen som JavaScript-objekt, behövs JSON.parse. 
+För att kunna behandla listan av tasks i filen som JavaScript-objekt, behövs JSON.parse. 
 Vi parsar alltså innehållet av listBuffer och sparar det resulterande objektet i variabeln 'currentTasks'.
-Sedan bestämmer den nuvarande maximum id av spelare genom att använda reduce-metoden på currentTasks och spara värdet i variabeln maxTaskId.
+Sedan bestämmer den nuvarande maximum id av currentTasks genom att använda reduce-metoden på currentTasks och spara värdet i variabeln maxTaskId.
 Om currentTasks är tom eller odefinierad kommer maxTaskId att förbli 1.
 Om currentTasks finns och har en längd som är större än 0, ställer den in maxTaskId som det högsta id-värdet bland alla objekt i currentTasks.
 Sedan lägger den till det nya objektet till arrayen och skriver den resulterande arrayen till tasks.json.
@@ -44,7 +44,7 @@ Slutligen skickar den det nya objektet tillbaka i responsen.
 Om ett error förekommer någon gång under processsen, kommer servern skicka ett respons med statuskoden 500 (Internal Server Error) och errormeddelandet.
 */
 
-/**/
+
 app.post('/tasks', async (req, res) => {
   try {
     const task = req.body;
