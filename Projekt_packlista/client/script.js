@@ -66,6 +66,11 @@ function validateField(field) {
   field.previousElementSibling.classList.remove('hidden');
 }
 
+
+/* Uppgift 2A
+
+Detta är en funktion som anropas när submit-händelsen utlöses på ett formulärelement
+Parametern e är ett händelseobjekt som innehåller information om händelsen som inträffade.*/
 function onSubmit(e) {
   e.preventDefault();
   if (thingValid && numberValid && tripValid) {
@@ -74,6 +79,13 @@ function onSubmit(e) {
   }
 }
 
+ /*
+ Savething funktionen används för att spara en ny "thing" till servern. Den gör det genom att skapa ett objekt med tre properties: thing, number, and trip.
+ Till dessa egenskaper så tilldelar vi värdet av tre av våra formulär fält.
+ "Sak"-objektet skickas sen vidare till en api.create function, som sänder en HTTP request för att skapa en ny "thing" i servern.
+ Om förfrågan är lyckad, så kalla funktionen renderList funktionen för att uppdatera listan med "saker"
+ */
+ 
 function saveThing() {
   const thing = {
     thing: listForm.thing.value,
@@ -82,14 +94,17 @@ function saveThing() {
   };
   
 
-  api.create(thing).then((thing) => {
-    if (thing) {
+//Sedan så använder vi "thing" som ett argument tiill vår create funktion.   
+api.create(thing).then((thing) => {
+  //Ifall create funktionen returnerar "True" så exekverar programmet vår renderlist funktion.  
+  if (thing) {
       renderList();
     }
   });
 }
 
 
+/* Uppgift 2A*/
 // I denna funktion så printar vi ut listan i frontend genom att anropa metoden getAll som är vår get-metod. Och vi sorterar listan i bokstavsordning från a - ö.
 // If satsen förklarar vi efter renderThing.
 // Forts... när parametern things och längden på things är större än 0 så har vi en for each loop som ittererar genom listan
@@ -113,6 +128,7 @@ function renderList() {
 }
 
 
+/* Uppgift 2A*/
 // I denna funktion har vi fyra parametrar, varav 3 är våra labels med samma variabelnamn.
 //Det som sker här är att vi skapar fler olika div-ar med styling och dessa div-ar anropas i if satsen ovan. Så det som sker i if-satsen är...
 function renderThing({ id, thing, number, trip}) {

@@ -14,7 +14,12 @@ app
     next();
   });
 
+/* This code is setting up an HTTP GET endpoint for the path '/tasks'.
+When a client makes a GET request to this endpoint, the server will execute the code inside the callback function.
+Inside the callback function, the server will try to read the contents of a file called 'tasks.json' using the fs.readFile() function, 
+which is a method of the built-in fs module in Node.js that allows you to work with the file system on your computer.
 
+If the file is successfully read, the server will send the contents of the file back to the client in the response body as a JSON object*/
 app.get('/tasks', async (req, res) => {
   try {
     const tasks = await fs.readFile('./tasks.json');
@@ -25,8 +30,7 @@ app.get('/tasks', async (req, res) => {
 });
 
 
-// // // // Uppgift 2b; Här visar vi hur vi skickar data till backend
-
+/* Uppgift 2C*/
 /* Metod för att lyssna efter POST-anrop.*/
 app.post('/tasks', async (req, res) => {
   try {
@@ -70,13 +74,15 @@ app.post('/tasks', async (req, res) => {
 
     // // // // Uppgift 2c; Kan det vara denna? En respons från backend på att ett task har mottagits?
 
-    /* Här använder vi responsparametern däe vi skickar new task, och om det skulle bli fel så skickas ett errormeddelande samt information om felet */
+    /* Här använder vi responsparametern där vi skickar new task, och om det skulle bli fel så skickas ett errormeddelande samt information om felet */
     res.send(newTask);
   } catch (error) {
     res.status(500).send({ error: error.stack });
   }
 });
 
+
+/* Mottsats till 2 A ? */
 app.delete('/tasks/:id', async (req, res) => {
   console.log(req);
   try {

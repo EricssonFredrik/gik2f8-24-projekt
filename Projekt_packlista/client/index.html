@@ -40,7 +40,7 @@
             <p class="tracking-wide message text-sm text-green-700 mb-2 hidden">
               Error
             </p>
-            <input type="text"
+            <input type="number"
             id="number"
             name="number"
             class="w-full rounded-md border-teal-500 border-2 focus-within:outline-none focus:border-teal-600 px-4 py-2" />
@@ -67,7 +67,9 @@
       <!-- Punkt 2a visas här; -->
       <section class="flex-1 px-5">
         <h2 class="mb-6 text-3xl text-teal-900">Alla saker</h2>
+        <!-- Ul-element som kommer att fyllas på dynamiskt med li-element för varje uppgift i listan -->
         <ul id="packingList">
+          <!-- Allt innanför här ska skapas dynamiskt med JavaScript-->
         </ul>
       </section>
     </section>
