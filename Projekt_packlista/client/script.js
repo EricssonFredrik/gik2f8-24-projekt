@@ -67,12 +67,6 @@ function validateField(field) {
 }
 
 
-/*
-// 1.2
-Här definieras en funktion kallad onSubmit, vilken initiellt används som Event Handler för ett formulärelement. 
-Den kollar om flera variabler som representerar validiteten av olika formulärfält är True eller False.
-Om alla dessa variabler är True, kommer funktionen logga ett meddelande till konsollen och kalla en annan funktion; saveThing.
-*/
 function onSubmit(e) {
   e.preventDefault();
   if (thingValid && numberValid && tripValid) {
@@ -81,13 +75,7 @@ function onSubmit(e) {
   }
 }
 
- /*
- 1.3
- Savething funktionen används för att spara en ny "thing" till servern. Den gör det genom att skapa ett objekt med tre properties: thing, number, and trip.
- Till dessa egenskaper så tilldelar vi värdet av tre av våra formulär fält.
- "thing"-objektet skickas sen vidare till en api.create function, som sänder en HTTP POST request för att skapa en ny "thing" i servern.
- Om förfrågan är lyckad, så kallas funktionen renderList för att uppdatera listan med "thing"
- */
+ 
 
 function saveThing() {
   const thing = {
@@ -104,16 +92,7 @@ api.create(thing).then((thing) => {
   });
 }
 
-/*  Uppgift 2A
 
- 1.1.0
- I denna funktion så printar vi ut listan i frontend genom att anropa metoden getAll som är vår get-metod, se filen Api.js. 
-
- 1.1.2
- Vi sorterar även listan i bokstavsordning från A - Ö.
- If satsen sker när parametern things och längden på things är större än 0, Då har vi en for each loop som ittererar genom listan
- och då anropar vi på renderThings och skapar dessa div-ar när man klickar på Lägg till knappen och på så sätt sker detta dynamiskt.
- Och bara för att visa att spara-knappen är länkad med renderList-funktionen så kan vi visa det här ovan. (1.2) */
 function renderList() {
   console.log('rendering');
   api.getAll().then((things) => {
@@ -132,12 +111,7 @@ function renderList() {
 }
 
 
-/* Uppgift 2A
 
-1.0
-I denna funktion har vi fyra parametrar, varav 3 är våra labels med samma variabelnamn.
-Det som sker här är att vi skapar flera olika div-ar med styling och dessa div-ar anropas i funktionen ovan ( renderList() ).
-*/
 function renderThing({ id, thing, number, trip}) {
 let html = `
 <li class="select-none mt-2 py-2 border-b border-teal-300">
